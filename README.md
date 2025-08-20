@@ -12,7 +12,7 @@ This setup allows the EC2 server to access and scan devices on Kali’s internal
 ## Problem Statement
 In real-world scenarios, most devices in a private LAN are hidden behind routers using **NAT (Network Address Translation)** and firewalls.
 
-- This makes it impossible to directly connect or scan them from the outside (e.g., cloud servers).  
+- This makes it impossible to directly connect or scan them from the outside (e.g., cloud servers).    
 - Traditional inbound connections fail because there is no direct route back into the private LAN.  
 
 **Solution:**  
@@ -33,10 +33,12 @@ Once connected, EC2 can use the tunnel as a **bridge** to access Kali’s local 
 
 ### 2. Reverse SSH Tunnel Command
 From Kali → EC2:
-`ssh -i key.pem -R 2222:localhost:22 -R 8080:localhost:80  ubuntu@<EC2-IP>`
--R 2222:localhost:22: Forwards EC2 port 2222 to Kali’s SSH (port 22).
+```bash 
+ssh -i key.pem -R 2222:localhost:22 -R 8080:localhost:80  ubuntu@<EC2-IP>
+```
+`-R 2222:localhost:22:` Forwards EC2 port 2222 to Kali’s SSH (port 22).  
 
--R 8080:localhost:80: Forwards EC2 port 8080 to Kali’s HTTP (port 80).
+`-R 8080:localhost:80:` Forwards EC2 port 8080 to Kali’s HTTP (port 80).
 
 ### 3. SSH Server Configuration on Kali
 - Edited /etc/ssh/sshd_config: `AllowTcpForwarding yes`
@@ -63,16 +65,16 @@ Run Nmap scans through the tunnel to probe internal devices:
 ## Conclusion
 This lab demonstrated how to:
 
--Securely share credentials into a Kali VM.
--Use reverse SSH tunneling to bypass NAT/firewalls.
--Forward multiple ports (SSH, HTTP) for remote access.
--Extend access to other devices in the local network.
--Perform network scanning from the cloud via the tunnel.
+-Securely share credentials into a Kali VM.  
+-Use reverse SSH tunneling to bypass NAT/firewalls.  
+-Forward multiple ports (SSH, HTTP) for remote access.  
+-Extend access to other devices in the local network.  
+-Perform network scanning from the cloud via the tunnel.  
 
  ## Takeaway
 Reverse SSH tunneling is a powerful technique for:
 
--Red team operations (pivoting into internal networks).
--Remote troubleshooting and administration.
--Bridging isolated networks to cloud-based tools.
+-Red team operations (pivoting into internal networks).  
+-Remote troubleshooting and administration.  
+-Bridging isolated networks to cloud-based tools.  
 This method enables external access to otherwise unreachable private resources—without opening inbound ports on the firewall.
