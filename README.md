@@ -61,6 +61,7 @@ Forward traffic to Kali’s gateway ( router at 192.168.100.1):
 Run Nmap scans through the tunnel to probe internal devices:
 `sudo nmap -sS -sV -O 192.168.100.1 -oN homeNetwork.txt`
 - Scans are initiated from EC2 but target Kali’s LAN.
+![EC2](EC2_tunnel_SSH.png)
 
 ## Conclusion
 This lab demonstrated how to:
