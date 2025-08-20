@@ -39,6 +39,7 @@ ssh -i key.pem -R 2222:localhost:22 -R 8080:localhost:80  ubuntu@<EC2-IP>
 `-R 2222:localhost:22:` Forwards EC2 port 2222 to Kali’s SSH (port 22).  
 
 `-R 8080:localhost:80:` Forwards EC2 port 8080 to Kali’s HTTP (port 80).
+![EC2](EC2_tunnel_SSH.png)
 
 ### 3. SSH Server Configuration on Kali
 - Edited /etc/ssh/sshd_config: `AllowTcpForwarding yes`
@@ -61,7 +62,7 @@ Forward traffic to Kali’s gateway ( router at 192.168.100.1):
 Run Nmap scans through the tunnel to probe internal devices:
 `sudo nmap -sS -sV -O 192.168.100.1 -oN homeNetwork.txt`
 - Scans are initiated from EC2 but target Kali’s LAN.
-![EC2](EC2_tunnel_SSH.png)
+![EC2](EC2_tunnel_portScan.png)
 
 ## Conclusion
 This lab demonstrated how to:
