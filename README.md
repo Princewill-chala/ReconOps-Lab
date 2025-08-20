@@ -57,6 +57,9 @@ Forward traffic to Kali’s gateway ( router at 192.168.100.1):
 `ssh -i key.pem -R 8080:192.168.100.1:80 ubuntu@<EC2-IP>`
 - Now EC2 can access the router’s web UI via:
 `curl http://localhost:8080.`
+![ya](default-gateway-check.png)
+
+---
 
 ### 6. Network Scanning from EC2
 Run Nmap scans through the tunnel to probe internal devices:
