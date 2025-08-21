@@ -71,16 +71,16 @@ Run Nmap scans through the tunnel to probe internal devices:
 ## Conclusion
 This lab demonstrated how to:
 
--Securely share credentials into a Kali VM.  
--Use reverse SSH tunneling to bypass NAT/firewalls.  
--Forward multiple ports (SSH, HTTP) for remote access.  
--Extend access to other devices in the local network.  
--Perform network scanning from the cloud via the tunnel.  
+- Securely share credentials into a Kali VM.  
+- Use reverse SSH tunneling to bypass NAT/firewalls.  
+- Forward multiple ports (SSH, HTTP) for remote access.  
+- Extend access to other devices in the local network.  
+- Perform network scanning from the cloud via the tunnel.  
 
  ## Takeaway
 Reverse SSH tunneling is a powerful technique for:
 
--Red team operations (pivoting into internal networks).  
--Remote troubleshooting and administration.  
--Bridging isolated networks to cloud-based tools.  
+- Red team operations (pivoting into internal networks).  
+- Remote troubleshooting and administration.  
+- Bridging isolated networks to cloud-based tools.  
 This method enables external access to otherwise unreachable private resources—without opening inbound ports on the firewall.
